@@ -1,2 +1,5 @@
 # Concessionaria_PABD
-Será o projeto final do quarto bimestre de banco de dados e autoria web que será um site de compras de carros como em uma concessionária.
+
+Este será o espaço onde guardaremos os arquivos do projeto final do quarto bimestre da disciplina de banco de dados e autoria web,
+que tem como objetivo o desenvolvimento de um site de e-commerce. O nosso domínio de aplicação será simular uma concessionária, 
+um site de vendas de carros e a nossa empresa fictícia se chamará Elite Motors.
