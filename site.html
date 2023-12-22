@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
         }
 
         header {
@@ -26,14 +26,14 @@
         }
 
         #logo {
-            max-width: 300px; /* Ajuste o tamanho máximo da imagem conforme necessário */
+            max-width: 100px; /* Ajuste o tamanho máximo da imagem conforme necessário */
             height: auto; /* Mantém a proporção da imagem */
         }
 
         #search-bar-container {
             display: flex; /* Permite alinhar a barra de pesquisa ao centro */
             align-items: center;
-            margin: 0 auto; /* Centraliza a barra de pesquisa no meio do site */
+            margin-left: auto; /* Move a barra de pesquisa para o canto superior direito */
         }
 
         #search-bar {
@@ -52,7 +52,7 @@
         }
 
         #search-icon {
-            margin-left: 10px; /* Adiciona um espaço entre a barra de pesquisa e o ícone de busca */
+            margin-left: auto; /* Move a lupa para a direita */
             color: #333; /* Cor do ícone */
         }
 
@@ -60,7 +60,7 @@
             width: 60px; /* Largura do botão */
             height: 60px; /* Altura do botão */
             border-radius: 50%; /* Bordas arredondadas para formar um círculo */
-            background-color: #4CAF50; /* Cor de fundo do botão */
+            background-color: #000000; /* Cor de fundo do botão */
             color: #fff; /* Cor do texto do botão */
             border: none;
             cursor: pointer;
@@ -78,6 +78,7 @@
 
         .names-container {
             display: flex;
+            flex-wrap: wrap; /* Permite que os nomes e as imagens quebrem para a próxima linha quando não há espaço suficiente */
             justify-content: space-between;
             padding: 2em;
         }
@@ -85,6 +86,7 @@
         .name {
             flex: 1;
             text-align: center;
+            margin-bottom: 20px; /* Adiciona espaço entre os nomes */
         }
 
         main {
@@ -100,35 +102,130 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Estilo para o contêiner principal */
+        .imagem-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 10px; /* Adiciona espaço entre os contêineres de imagens */
+        }
+
+        /* Estilo para cada imagem */
+        .imagem-container img {
+            width: 150px; /* Ajuste a largura conforme necessário */
+            height: auto; /* Mantém a proporção original da imagem */
+            margin-right: 5px; /* Reduz o espaço à direita de cada imagem */
+            margin-bottom: 10px; /* Adiciona espaço entre as imagens */
+        }
+
+
+        img {
+            width: 100%; /* Ocupa 100% da largura do contêiner pai (.slide) */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        #anterior, #proximo {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #nav {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+        }
+
+        nav {
+            display: flex;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        #search-bar-container {
+            display: flex; /* Permite alinhar a barra de pesquisa ao centro */
+            align-items: center;
+            margin-left: auto; /* Move a barra de pesquisa para o canto superior direito */
+        }
+
+
     </style>
 </head>
 <body>
     <header>
         <div id="logo-container">
-            <img id="logo" src="caminho/para/sua/logo.png" alt="Logo do Meu Site">
+            <img id="logo" src="logo_elitemotors.png" alt="Logo do Meu Site">
         </div>
-        <div id="search-bar-container">
-            <!-- Adiciona a barra de pesquisa -->
-            <form>
-                <input type="text" id="search-bar" placeholder="Pesquisar produtos...">
-                <span id="search-icon">&#128269;</span>
-            </form>
+
+        <div id="nav">
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Login</a>
+                <a href="#">Cadastre-se</a>
+                <a href="#">Serviços</a>
+
+              </nav>
         </div>
+
         <button id="login-button">
-            <img src="caminho/para/sua/imagem.png" alt="Imagem de Login">
+            <img src="login.png" alt="Imagem de Login">
         </button>
+
+       
     </header>
 
-    <main>
-        <div class="names-container">
-            <div class="name">
-                <h3>Nome 1</h3>
-            </div>
-            <div class="name">
-                <h3>Nome 2</h3>
-            </div>
-            <!-- Adicione mais divs .name conforme necessário -->
-        </div>
+
+         <!-- Adiciona a barra de pesquisa -->
+         <form>
+            <input type="text" id="search-bar" placeholder="Pesquisar produtos...">
+            <span id="search-icon">&#128269;</span>
+        </form>
+   
+        <script>
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+        
+            document.getElementById('proximo').addEventListener('click', () => {
+                slideIndex = (slideIndex + 1) % totalSlides;
+                updateCarousel();
+            });
+        
+            document.getElementById('anterior').addEventListener('click', () => {
+                slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+        
+            function updateCarousel() {
+                slides.forEach((slide, index) => {
+                    if (index === slideIndex) {
+                        slide.style.opacity = 1; // Torna a imagem visível
+                    } else {
+                        slide.style.opacity = 0; // Torna as outras imagens invisíveis
+                    }
+                });
+            }
+        </script>
+        
         <section>
             <h2>Bem-vindo ao Meu Site</h2>
             <p>Este é um exemplo básico de uma página HTML.</p>
@@ -140,3 +237,5 @@
     </footer>
 </body>
 </html>
+
+
