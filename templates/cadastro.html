@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Meta tags e outros estilos anteriores aqui -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #a11d1d;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        #navigation {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        #navigation a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #navigation a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #login-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #login-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #000;
+            color: rgb(251, 255, 34);
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        #login-button img {
+            width: 100%;
+            height: auto;
+        }
+
+        #signup-text {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: #a11d1d;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Container para o formulário */
+        .form-container {
+            max-width: 600px; /* Ajuste o valor conforme necessário */
+            margin: 20px auto;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        /* Estilos para a coluna esquerda */
+        .left-column {
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        /* Estilos para a coluna direita */
+        .right-column {
+            flex: 1;
+            padding-left: 10px;
+        }
+
+        /* Estilos gerais para o formulário */
+        form {
+            max-width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #a11d1d;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #821818;
+        }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+            margin: 16px 0;
+        }
+
+        button[type="button"] {
+            background-color: #3b5998;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        button[type="button"]:last-child {
+            margin-right: 0;
+        }
+
+        p a {
+            color: #a11d1d;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-align: left;
+            margin-right: 20px;
+        }
+
+        button[type="button"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #facebook-login img,
+        #google-login img {
+            width: 24px; /* Ajuste a largura conforme necessário */
+            height: 24px; /* Ajuste a altura conforme necessário */
+            margin-right: 8px; /* Adicione um espaçamento entre a imagem e o texto do botão */
+        }
+
+        .right-column {
+            flex: 1;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column; /* Ajuste para direção da coluna */
+            justify-content: flex-start; /* Alinhamento superior */
+        }
+
+        #forgot-password {
+            margin-top: 10px; /* Adiciona um espaçamento entre o campo senha e o link */
+            text-align: left; /* Alinha o link à esquerda */
+        }
+
+        /* Adiciona um espaçamento entre o link e o botão */
+        #forgot-password {
+            margin-bottom: 10px;
+        }
+
+        /* Ajuste para o botão ficar abaixo do link */
+        button[type="submit"] {
+            order: 2; /* Define a ordem do botão */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo-container">
+            <img id="logo" src="logo_elitemotors.png" alt="Logo do Meu Site">
+        </div>
+
+        <div id="navigation">
+            <a href="#">Marcas</a>
+            <a href="#">Modelos</a>
+            <a href="#">Pesquise por ano</a>
+            <a href="#">Mais vendidos</a>
+            <a href="#">Meu carrinho</a>
+        </div>
+
+        <div id="login-container">
+            <button id="login-button">
+                <img src="login.png" alt="Imagem de Login">
+            </button>
+            <span id="signup-text">ENTRAR</span>
+        </div>
+    </header>
+            
+    <div class="form-container">
+
+        <div class="left-column">
+            <h2>Entre com suas redes sociais:</h2>
+            <!-- Entrar com Facebook -->
+
+        <a href="logarnofacebook.html"
+            <button type="button" onclick="entrarComFacebook()" id="facebook-login">
+                <img src="entrarcomfacebook.png" alt="Entrar com Facebook">
+                Entrar com Facebook
+            </button>
+        </a>
+
+        <br>
+        <br>
+        <br>
+
+            <!-- Entrar com Google -->
+
+        <a href="logaremail.html"
+            <button type="button" onclick="entrarComGoogle()" id="google-login">
+                <img src="entrarcomogoogle.png" alt="Entrar com Google">
+                Entrar com Google
+            </button>
+        </a>
+        </div>
+
+        <!-- Coluna direita -->
+        <div class="right-column">
+            <h2>Digite o seu e-mail e senha</h2>
+            <!-- Formulário de Cadastro -->
+            <form action="/cadastrar" method="post">
+                <!-- Campos para E-mail e Senha -->
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+                
+                <!-- Link "Esqueci minha senha" -->
+                <a href="/recuperar-senha" id="forgot-password">Esqueci minha senha</a>
+                <br>
+                <br>
+
+                <!-- Botão para Entrar com E-mail e Senha -->
+                <button type="submit">Entrar</button>
+                
+                <!-- OU -->
+                <p>OU</p>
+
+                <!-- Mensagem para Criar uma Conta -->
+                <p>Não tem uma conta? <a href="/criar-conta">Crie a sua!</a></p>
+
+
+            </form>
+        </div>
+    </div> 
+
+    <footer>
+        <p>&copy; 2023 Elite Motors. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
