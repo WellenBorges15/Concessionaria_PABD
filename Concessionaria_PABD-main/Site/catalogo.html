@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        header {
+            background-color: rgb(255, 0, 0);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .imagem {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .imagem img {
+            width: 100%;
+            height: auto;
+        }
+
+        .legenda {
+            text-align: center;
+            margin-top: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0; /* Inicialmente, a legenda está oculta */
+            transition: opacity 0.3s ease; /* Efeito de transição suave */
+        }
+
+        .imagem:hover .legenda {
+            opacity: 1; /* Quando o cursor está sobre a imagem, a legenda fica visível */
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-width: 100px;
+        }
+
+        .imagem-redonda {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .imagem-redonda img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .barra-busca {
+            text-align: center;
+            margin: 20px 0;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .barra-busca input {
+            padding: 10px;
+            width: 200px;
+        }
+
+        .barra-busca button {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: rgb(255, 0, 0);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img class="logo" src="logo_elitemotors.jpg" alt="Logo">
+        <div class="imagem-redonda">
+            <img src="{{caminho_da_imagem_redonda}}" alt="Imagem Redonda">
+        </div>
+    </header>
+
+    <div class="barra-busca">
+        <input type="text" placeholder="Digite sua busca">
+        <button type="submit">Buscar</button>
+    </div>
+
+    <section>
+        <div class="imagem">
+            <img src="{{caminho_da_imagem1}}" alt="Imagem 1">
+            <div class="legenda">Legenda 1</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem2}}" alt="Imagem 2">
+            <div class="legenda">Legenda 2</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem3}}" alt="Imagem 3">
+            <div class="legenda">Legenda 3</div>
+        </div>
+
+        <!-- Adicione mais divs com a classe "imagem" conforme necessário -->
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem4}}" alt="Imagem 4">
+            <div class="legenda">Legenda 4</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem5}}" alt="Imagem 5">
+            <div class="legenda">Legenda 5</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem6}}" alt="Imagem 6">
+            <div class="legenda">Legenda 6</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem7}}" alt="Imagem 7">
+            <div class="legenda">Legenda 7</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem8}}" alt="Imagem 8">
+            <div class="legenda">Legenda 8</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem9}}" alt="Imagem 9">
+            <div class="legenda">Legenda 9</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem10}}" alt="Imagem 10">
+            <div class="legenda">Legenda 10</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem11}}" alt="Imagem 11">
+            <div class="legenda">Legenda 11</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem12}}" alt="Imagem 12">
+            <div class="legenda">Legenda 12</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem13}}" alt="Imagem 13">
+            <div class="legenda">Legenda 13</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem14}}" alt="Imagem 14">
+            <div class="legenda">Legenda 14</div>
+        </div>
+
+        <div class="imagem">
+            <img src="{{caminho_da_imagem15}}" alt="Imagem 15">
+            <div class="legenda">Legenda 15</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Informações de Rodapé - © 
