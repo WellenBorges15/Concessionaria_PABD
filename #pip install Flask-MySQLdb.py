@@ -1,63 +1,53 @@
-# Importa a biblioteca Flask para criar a aplicação web e a extensão Flask-MySQLdb para integração com MySQL
-from flask import Flask
+from flask import Flask, request, render_template, redirect, url_for
 from flask_mysqldb import MySQL
 
-# Cria uma instância da aplicação Flask
+
 app = Flask(__name__)
 
-# Configurações do banco de dados MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'labinfo'
 app.config['MYSQL_DB'] = 'mydb'
 
-# Inicialização da extensão MySQL com a aplicação Flask
 mysql = MySQL()
 mysql.init_app(app)
 
-
-
-# Define uma rota para a URL '/carros'
 @app.route('/produto')
 def produto():
-    # Conecta ao banco de dados
     cursor = mysql.connection.cursor()
-
-    # Executa uma consulta SQL para selecionar todos os carros da tabela 'produto' onde a categoria é 'carro'
     cursor.execute("SELECT * FROM produto")
-
-    # Recupera todos os resultados da consulta
     data = cursor.fetchall()
-
-    # Fecha o cursor após a conclusão da operação
     cursor.close()
-
-    # Retorna os dados obtidos em formato de string
     return str(data)
 
-
-
-
-# Define uma rota para a URL '/clientes'
-@app.route('/clientes')
+@app.route('/cliente')
 def clientes():
-    # Conecta ao banco de dados
     cursor = mysql.connection.cursor()
-
-    # Executa uma consulta SQL para selecionar todos os clientes da tabela 'cliente'
     cursor.execute("SELECT * FROM cliente")
-
-    # Recupera todos os resultados da consulta
     data = cursor.fetchall()
-
-    # Fecha o cursor após a conclusão da operação
     cursor.close()
-
-    # Retorna os dados obtidos em formato de string
     return str(data)
 
-# Pode adicionar mais rotas conforme necessário, para outras tabelas ou consultas específicas
+@app.route('/form', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        nome = request.form['nome']
+        ano = request.form['ano']
+        marca = request.form['marca']
+        cor = request.form['cor']
+        categoria = request.form['categoria']
+        preco = request.form['preco']
+        descricao = request.form['descricao']
+        estoque = request.form['estoque']
 
-# Executa a aplicação Flask quando o script é executado diretamente
-if __name__ == '__main__':
-    app.run(debug=True)
+        cursor = mysql.connection.cursor()
+        cursor.execute('''
+            INSERT INTO produto (nome, ano, marca, cor, categoria, preco, descricao, estoque)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        ''', (nome, ano, marca, cor, categoria, preco, descricao, estoque))
+        mysql.connection.commit()
+        cursor.close()
+
+        return redirect(url_for('index'))
+
+    return render_template('form.html')
