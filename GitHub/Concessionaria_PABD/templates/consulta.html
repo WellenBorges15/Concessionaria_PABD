@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Produtos</title>
+</head>
+<body>
+    <h1>Resultado da Pesquisa</h1>
+
+    <form method="POST" action="/consulta">
+        <label for="nome">Nome do Produto:</label>
+        <input type="text" name="nome" required>
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    {% if results %}
+        <h2>Produtos Encontrados:</h2>
+        <ul>
+            {% for produto in results %}
+                <li>
+                    <strong>Nome:</strong> {{ produto[1] }}<br>
+                    <strong>Ano:</strong> {{ produto[2] }}<br>
+                    <strong>Marca:</strong> {{ produto[3] }}<br>
+                    <strong>Cor:</strong> {{ produto[4] }}<br>
+                    <strong>Categoria:</strong> {{ produto[5] }}<br>
+                    <strong>Preço:</strong> R$ {{ produto[6] }}<br>
+                    <strong>Descrição:</strong> {{ produto[7] }}<br>
+                    <strong>Estoque:</strong> {{ produto[8] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum produto encontrado.</p>
+    {% endif %}
+</body>
+</html>
